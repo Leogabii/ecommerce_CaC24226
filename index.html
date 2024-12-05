@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Moo+Lah+Lah&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Tienda Web</title>
+    <style>
+         .bonif{
+            position: absolute;
+            border: 2px solid #20c997;
+            width: 80px;
+            z-index: 1000;
+            background-color: #20c997;
+            color:#fff;
+            margin-top: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div>
+
+        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <a href="https://www.instagram.com/tabla.ba/" class="text-white">PARA COMPRAS AL INTERIOR, HACÉ TU PEDIDO POR WHATSAPP</a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://www.instagram.com/tabla.ba/" class="text-white">3 CUOTAS SIN INTERÉS O 10% OFF EN EFECTIVO EN LOCALES</a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://www.instagram.com/tabla.ba/" class="text-white">ENVIOS A CABA, GBA Y PBA</a>
+            </div>
+        </div>
+        <button class="carousel-control-prev custom-prev" href="#carouselExample" role="button" data-slide="prev">
+            <svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                <path d="M45.25,256l195.72,195.75-18.11,18.1L9.07,256,222.93,42.15,240.05,60.25Z"></path>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next custom-next" href="#carouselExample" role="button" data-slide="next">
+            <svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                <path d="M210.72,256,15,60.25l18.11-18.1L246.93,256,33.08,469.85,15,451.75Z"></path>
+            </svg>
+            <span class="sr-only">Next</span>
+        </button>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <h1 class="navbar-brand mb-0 moo-lah-lah-regular">Tienda Online</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="margin-left: auto;">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto" style="text-align:end;" >
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#productos">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#contacto">Contacto</a>
+                </li>
+                    <!-- Enlace al carrito con el ícono -->
+                <li style="list-style: none;" class="nav-item">
+                    <a class="nav-link text-white" href="cart.html" id="cart-btn">Carrito (<span id="cart-count">0</span>)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+</header>
+<main>
+
+<!-- Modal para iniciar sesión -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="username" class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="username" placeholder="Ingrese su usuario">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Clave</label>
+              <input type="password" class="form-control" id="password" placeholder="Ingrese su clave">
+            </div>
+            <button type="submit" class="btn btn-success">Iniciar sesión</button>
+          </form>
+          <div id="error-message" class="mt-2 text-danger" style="display: none;">
+            Usuario o clave incorrectos.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <section id="productos">
+        <h2 class="subtitulo">Productos</h2>
+        <!-- aca cambia a carrusel -->
+        <div id="prod" class="productos-grid">
+            <div id="app" class="container" data-aos="zoom-in">
+                  
+            </div>
+        </div>
+    </section>
+    <!-- iframe -->
+    <div class="video-overlay" id="videoOverlay">
+        <div>
+            <iframe id="video" src="https://www.youtube.com/embed/KyAgUMx2vcc?enablejsapi=1&autoplay=1&controls=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <button class="btn btn-danger mt-3" id="skipButton">Saltar Video</button>
+        </div>
+    </div>
+    
+    
+    <section id="reseñas">
+        <h2 class="subtitulo">Reseñas</h2>
+        <div class="reseñas-grid">
+            <div class="reseña-card small">¡Me encantó!</div>
+            <div class="reseña-card small">Excelente calidad.</div>
+            <div class="reseña-card small">Lo recomiendo totalmente.</div>
+            <div class="reseña-card small">¡Un producto espectacular!</div>
+            <div class="reseña-card small" >Muy satisfecha con mi compra.</div>
+            <div class="reseña-card small">Servicio al cliente excepcional.</div>
+            <div class="reseña-card small">Definitivamente volveré a comprar.</div>
+            <div class="reseña-card small">Superó mis expectativas.</div>
+            <div class="reseña-card small">Calidad inmejorable.</div>
+            <div class="reseña-card small">Me encantó el diseño.</div>
+            <div class="reseña-card small">Recomendado al 100%.</div>
+            <div class="reseña-card small">¡Espero mi próxima compra con ansias!</div>
+            
+        </div>
+    </section>
+
+    <div class="container mt-5">
+        <section id="contacto">
+            <h2 class="subtitulo text-center">Contacto</h2>
+        
+            <form action="https://formspree.io/f/mrbgzdka" method="POST" id="miFormulario" onsubmit="return enviar()">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z]{3,}" required title="El nombre debe tener al menos 3 letras" oninput="verificarCampo(this)" />
+                    <div id="error-nombre" class="form-text text-danger" style="display:none;">El nombre debe tener al menos 3 letras.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" required oninput="verificarCampo(this)" />
+                    <div id="error-email" class="form-text text-danger" style="display:none;">Por favor, ingrese un correo electrónico válido.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje:</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" required oninput="verificarCampo(this)"></textarea>
+                    <div id="error-mensaje" class="form-text text-danger" style="display:none;">El mensaje no puede estar vacío.</div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </form>
+        </section>
+    </div>
+    
+</main>
+
+<footer style="padding: 0;">
+    <p id="pfooter" class="small-text" style="margin: 0;">&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
+</footer>
+
+
+<script src="./assets/js/script.js"></script>
+<!-- Cargar funcionamiento de vue.js -->
+<script src="./assets/js/index.js" type="module"></script>
+
+<!-- Cargar la API de YouTube -->
+<script src="https://www.youtube.com/iframe_api"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Librería Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Bootstrap JS, Popper.js, y Bootstrap 5  -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./assets/js/formulario.js"></script>
+
+</body>
+</html>
+</body>
+</html>

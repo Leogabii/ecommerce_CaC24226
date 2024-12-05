@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.detalle.css">
+</head>
+<body>
+    <li style="list-style: none;" class="nav-item">
+        <a class="nav-link" href="cart.html" id="cart-btn">Carrito (<span id="cart-count">0</span>)</a>
+    </li>
+    <div class="container">
+        <div class="product-container">
+            <!-- Foto del Producto -->
+            <div class="col-md-4">
+                <img id="detalle-imagen" src="" class="img-fluid" alt="Imagen del producto">
+            </div>
+
+            <!-- Detalles del Producto -->
+            <div class="col-md-4">
+                <div class="product-details">
+                    <h1 id="detalle-titulo"></h1>
+                    <h3 id="detalle-descripcion"></h3>
+                    
+                    <p id="detalle-precio" class="product-price"></p>
+                    <!-- <p><span style="text-decoration: line-through;">$ </span></p> -->
+                    <p id="detalle-cuotas" class="product-price"></p>
+
+                    <div class="payment-plans">
+                        <a class="fs-6 text-info" onclick="mostrarAlerta()">Ver los medios de pago</a>
+                    </div>
+                    <strong>Color: </strong></span><p id="detalle-color"><span></p>
+                </div>
+            </div>
+
+            <!-- Información de Envío y Acciones -->
+            <div class="col-md-4">
+                <div class="shipping-info">
+                    <h4>Envío a todo el país</h4>
+                    <p>Conocé los tiempos y las formas de envío.</p>
+                    <hr>
+                    <!-- Botón que dispara el modal -->
+                    <button class="btn btn-info text-white" onclick="mostrarModal()">Calcular cuándo llega</button>
+
+
+                </div>
+
+                <div class="product-actions">
+                    <h5>Cantidad:</h5>
+                    <input id="stock-input" type="number" class="form-control" value="1" min="1" oninput="validarCantidad()">
+                    <p><small id="stock-info"></small></p>
+
+                    
+                    <button class="btn btn-outline-info w-100" onclick="window.location.href='#'">Comprar ahora</button>
+                    <button class="btn btn-outline-success w-100" onclick="agregarAlCarrito()">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalComingSoon" tabindex="-1" role="dialog" aria-labelledby="modalComingSoonLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalComingSoonLabel">¡Próximamente!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>La función que estás esperando está en desarrollo. ¡Vuelve más tarde!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal de Confirmación de Agregar al Carrito -->
+<div class="modal fade modalCArrito" id="modalCarrito" tabindex="-1" role="dialog" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCarritoLabel">Producto Agregado al Carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Contenedor de imagen y detalles -->
+                <div class="d-flex align-items-center">
+                    <!-- Imagen del producto -->
+                    <img id="producto-imagen" src="" class="img-fluid me-3" alt="Imagen del producto" style="max-width: 100px;">
+
+                    <!-- Detalles del producto -->
+                    <div>
+                        <p><strong>Agregaste a tu carrito</strong></p>
+                        <p id="producto-nombre"></p>
+                        <p><strong>Cantidad: </strong><span id="producto-cantidad"></span> unidad/es</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <a href="cart.html" class="btn btn-primary">Ir al carrito</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+ <!-- Scripts de Bootstrap (jQuery, Popper.js y Bootstrap JS) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- JS de Bootstrap (con Popper incluido) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery (necesario para Bootstrap 4) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Popper.js (necesario para el modal en Bootstrap) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Inclusión de dependencias de Bootstrap 5 y jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"></script>
+
+<script src="./assets/js/detalle.js"></script>
+</body>
+</html>

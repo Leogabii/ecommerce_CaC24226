@@ -1,0 +1,58 @@
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.product-container .col {
+    margin-right: 20px;
+}
+
+.product-details {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.product-price {
+    font-size: 1.5em;
+    color: #2e8b57;
+}
+
+.payment-plans {
+    /* font-size: 1.2em; */
+    margin-top: 10px;
+    padding: 10px auto;
+    cursor: default;
+
+}
+
+.shipping-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.payment-methods,
+.product-actions {
+    margin-top: 20px;
+}
+
+#detalle-color {
+    display: inline;
+}
+
+.centavos-superindice {
+    font-size: 0.8em;
+    /* vertical-align: super; */
+}
+
+#detalle-imagen.img-fluid {
+    transition: transform 0.3s ease;
+    /* Efecto suave de ampliación */
+}
+
+
+#detalle-imagen.img-fluid:hover {
+    transform: scale(1.2);
+}

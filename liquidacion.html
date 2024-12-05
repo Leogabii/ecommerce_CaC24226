@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura - Liquidación</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <style>
+        .product-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        .cart-container {
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Factura de Compra</h1>
+
+        <!-- Formulario para ingresar datos de facturación -->
+        <form id="billing-form">
+            <div class="form-group">
+                <label for="customer-name">Nombre Completo:</label>
+                <input type="text" id="customer-name" class="form-control" placeholder="Ingrese su nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="customer-email">Correo Electrónico:</label>
+                <input type="email" id="customer-email" class="form-control" placeholder="Ingrese su correo" required>
+            </div>
+            <div class="form-group">
+                <label for="customer-address">Dirección:</label>
+                <input type="text" id="customer-address" class="form-control" placeholder="Ingrese su dirección" required>
+            </div>
+            <div class="form-group">
+                <label for="customer-phone">Teléfono:</label>
+                <input type="tel" id="customer-phone" class="form-control" placeholder="Ingrese su teléfono" required>
+            </div>
+
+            <!-- Carrito de productos -->
+            <ul id="cart-items-list" class="list-group">
+                <!-- Los productos se agregarán aquí -->
+            </ul>
+
+            <hr>
+            <h4>Total: $<span id="cart-total">0.00</span></h4>
+
+            <!-- Botón para generar la factura y mostrar modal -->
+            <button type="button" class="btn btn-primary" id="pay-button" data-bs-toggle="modal" data-bs-target="#payment-modal">
+                Pagar
+            </button>
+            <button type="button" class="btn btn-danger" id="cancel-button">
+                Cancelar
+            </button>
+        </form>
+    </div>
+
+    <!-- Modal para mostrar el total -->
+    <div class="modal fade" id="payment-modal" tabindex="-1" aria-labelledby="payment-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="payment-modal-label">Resumen de la Compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Total a Pagar:</strong> $<span id="modal-total"></span></p>
+                    <p>¿Desea proceder con el pago?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirm-payment">Confirmar Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Cargar jsPDF desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="./assets/js/liquidacion.js"></script>
+</body>
+</html>

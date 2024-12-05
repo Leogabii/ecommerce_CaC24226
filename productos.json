@@ -1,0 +1,56 @@
+[
+    {
+     "id": 1,
+     "image": "https://acdn.mitiendanube.com/stores/926/506/products/tabla00049r_1-e8ab5cef1943fe393416988494852574-240-0.webp",
+     "title": "Remera",
+     "precio": "4500.90",
+     "description": "Remera scote en V",
+     "color": "blanco",
+     "stock": "24"
+    },
+    {
+     "id": 2,
+     "image": "https://acdn.mitiendanube.com/stores/926/506/products/tabla00245r-ea4a5ad5287e0ac6b816989363016193-480-0.webp",
+     "title": "Polo Rayado",
+     "precio": "4700.99",
+     "description": "Chomba Rayada",
+     "color": "blanco",
+     "stock": "12"
+    },
+    {
+     "id": 3,
+     "image": "https://acdn.mitiendanube.com/stores/926/506/products/tabla-fw23-01_-775-bf0958d62237eb8ecc17000575833989-480-0.webp",
+     "title": "Polo Clasico",
+     "precio": "5500.99",
+     "description": "Chomba estilo clasico verde agua",
+     "color": "blanco",
+     "stock": "4"
+    },
+    {
+     "id": 4,
+     "image": "https://acdn.mitiendanube.com/stores/926/506/products/t0109-54b2a16f684d9863fc17147566305566-240-0.webp",
+     "title": "Camisa PIPA SLIM FIT",
+     "precio": "7500.99",
+     "description": "Camisa a cuadrille",
+     "color": "blanco",
+     "stock": "1"
+    },
+    {
+     "id": 5,
+     "image": "https://acdn.mitiendanube.com/stores/926/506/products/tabla-fw23-01_-461-e4628253dcbc9ba81417000577991086-320-0.webp",
+     "title": "Polo Clasico",
+     "precio": "4500.99",
+     "description": "Chomba estilo clasico colorada",
+     "color": "blanco",
+     "stock": "6"
+    },
+    {
+     "id": 6,
+     "image": "https://acdn.mitiendanube.com/stores/926/506/products/tabla00328r-9bd5068feea3f0913116989378763778-320-0.webp",
+     "title": "Polo rayada",
+     "precio": "9500.99",
+     "description": "Chomba Rayada combinada",
+     "color": "blanco",
+     "stock": "21"
+    }
+  ]
